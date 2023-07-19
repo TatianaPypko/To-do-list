@@ -85,8 +85,8 @@ const App: React.FC = () => {
 
   return (
     <div className="todo-app">
-      <Header toDo={todoCount} isDone={doneCount} />
-      <div className="top-panel d-flex">
+      <Header todoCount={todoCount} doneCount={doneCount} />
+      <div className="top-panel d-flex flex-column gap-2 flex-sm-row flex-sm-wrapy">
         <SearchPanel searchItem={searchItem} setSearchItem={setSearchItem} />
         <StatusFilter setFilter={setFilter} />
       </div>

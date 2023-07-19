@@ -1,32 +1,42 @@
+import { useState } from "react";
+
 interface StatusFilterProps {
   setFilter: (filter: string) => void;
 }
 
-const StatusFilter: React.FC<StatusFilterProps> = ({ setFilter }) => {
+const StatusFilter = ({ setFilter }: StatusFilterProps) => {
+  const [activeFilter, setActiveFilter] = useState("all");
+
   const handleFilterChange = (newFilter: string) => {
     setFilter(newFilter);
+    setActiveFilter(newFilter);
+  };
+
+  const handleButtonClick = (filter: string) => {
+    setActiveFilter(filter);
+    handleFilterChange(filter);
   };
 
   return (
-    <div className="btn-group">
+    <div className="btn-group gap-1">
       <button
         type="button"
-        className="btn btn-info"
-        onClick={() => handleFilterChange("all")}
+        className={`btn ${activeFilter === "all" ? "btn-info" : "btn-outline-secondary"}`}
+        onClick={() => handleButtonClick("all")}
       >
         All
       </button>
       <button
         type="button"
-        className="btn btn-outline-secondary"
-        onClick={() => handleFilterChange("active")}
+        className={`btn ${activeFilter === "active" ? "btn-info" : "btn-outline-secondary"}`}
+        onClick={() => handleButtonClick("active")}
       >
         Active
       </button>
       <button
         type="button"
-        className="btn btn-outline-secondary"
-        onClick={() => handleFilterChange("done")}
+        className={`btn ${activeFilter === "done" ? "btn-info" : "btn-outline-secondary"}`}
+        onClick={() => handleButtonClick("done")}
       >
         Done
       </button>

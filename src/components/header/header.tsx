@@ -1,16 +1,14 @@
-import "./header.css";
-
 interface HeaderProps {
-  toDo: number;
-  isDone: number;
+  todoCount: number;
+  doneCount: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ toDo, isDone }) => {
+const Header = ({ todoCount, doneCount }: HeaderProps) => {
   return (
-    <div className="header d-flex">
-      <h1>Todo List</h1>
-      <h2>
-        {toDo} more to do, {isDone} done
+    <div className="d-flex align-items-end">
+      <h1 className="flex-grow-3">Todo List</h1>
+      <h2 className="fs-6 text-secondary ms-5">
+        {todoCount} more to do, {doneCount} done
       </h2>
     </div>
   );

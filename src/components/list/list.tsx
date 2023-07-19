@@ -1,5 +1,4 @@
 import ListItem from "../item/item";
-import "./list.css";
 
 interface ListProps {
   changedData: Item[];
@@ -14,10 +13,10 @@ interface Item {
   task: string;
 }
 
-const List: React.FC<ListProps> = ({ changedData, onToggleItem, onDeleted }) => {
+const List = ({ changedData, onToggleItem, onDeleted }: ListProps ) => {
   return (
     <ul className="list-group list">
-      {changedData.map((item) => (
+      {changedData.map((item: Item) => (
         <ListItem
           key={item.id}
           {...item}

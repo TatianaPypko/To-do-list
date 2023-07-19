@@ -1,4 +1,3 @@
-import "./add-form.css";
 import { ChangeEvent, FormEvent } from "react";
 
 interface AddFormProps {
@@ -7,13 +6,13 @@ interface AddFormProps {
   setChangedInput: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const AddForm: React.FC<AddFormProps> = ({
+const AddForm = ({
   addItem,
   changedInput,
   setChangedInput,
-}) => {
+}: AddFormProps) => {
   return (
-    <form className="add-form d-flex" onSubmit={addItem}>
+    <form className="mt-2 d-flex" onSubmit={addItem}>
       <input
         type="text"
         className="form-control"

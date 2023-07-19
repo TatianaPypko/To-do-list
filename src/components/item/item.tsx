@@ -12,18 +12,18 @@ interface ItemProps {
   onDeleted: (id: string) => void;
 }
 
-const Item: React.FC<ItemProps> = ({
+const Item = ({
   important,
   isDone,
   id,
   task,
   onToggleItem,
   onDeleted,
-}) => {
-  let classNames = "item d-flex group-item";
+}: ItemProps) => {
+  let classNames = "fs-5 item d-flex group-item";
 
   if (important) {
-    classNames += " important";
+    classNames += " text-success";
   }
 
   if (isDone) {
@@ -40,14 +40,14 @@ const Item: React.FC<ItemProps> = ({
       </span>
       <button
         type="button"
-        className="btn btn-outline-danger btn-sm"
+        className="btn btn-outline-danger w-35 m-1"
         onClick={() => onDeleted(id)}
       >
         <FontAwesomeIcon icon={faTrashAlt} />
       </button>
       <button
         type="button"
-        className="btn btn-outline-success btn-sm"
+        className="btn btn-outline-success w-35 m-1"
         onClick={() => onToggleItem(id, "important")}
       >
         <FontAwesomeIcon icon={faExclamation} />
@@ -57,3 +57,4 @@ const Item: React.FC<ItemProps> = ({
 };
 
 export default Item;
+
